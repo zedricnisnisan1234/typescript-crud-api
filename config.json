@@ -1,6 +1,6 @@
 {
   "database": {
-    "host": "153.92.15.31",
+    "host": "auth-db1631.hstgr.io",
     "port": 3306,
     "user": "u875409848_estrada",
     "password": "2qW^sUg=M",
