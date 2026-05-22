@@ -1,0 +1,10 @@
+{
+  "database": {
+    "host": "auth-db1631.hstgr.io",
+    "port": 3306,
+    "user": "u875409848_estrada",
+    "password": "2qW^sUg=M",
+    "database": "u875409848_estrada"
+  },
+  "jwtSecret": "change-this-in-production-123!"
+}
