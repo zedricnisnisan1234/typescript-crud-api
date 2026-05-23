@@ -1,10 +1,20 @@
 {
   "database": {
-    "host": "auth-db1631.hstgr.io",
+    "host": "localhost",
     "port": 3306,
-    "user": "u875409848_estrada",
-    "password": "2qW^sUg=M",
-    "database": "u875409848_estrada"
+    "user": "root",
+    "password": "root1234",
+    "database": "typescript_crud_api"
   },
-  "jwtSecret": "change-this-in-production-123!"
+  "jwtSecret": "change-this-in-production-123!",
+  "emailFrom": "zedricnisnisan@gmail.com",
+  "smtpOptions": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "zedricnisnisan@gmail.com",
+      "pass": "mfda drkf dqwp eydx"
+    }
+  }
 }

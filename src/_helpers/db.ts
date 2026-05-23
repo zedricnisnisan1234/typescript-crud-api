@@ -5,6 +5,8 @@ import { Sequelize } from 'sequelize';
 
 export interface Database {
   User: any;
+  Account: any;
+  RefreshToken: any;
 }
 
 export const db: Database = {} as Database;
@@ -22,17 +24,24 @@ export async function initialize(): Promise<void> {
     host,
     dialect: 'mysql',
     port,
-    dialectOptions: {
-      connectTimeout: 60000,
-      ssl: {
-        rejectUnauthorized: false
-      }
-    }
+    logging: false
   });
 
   // Initialize models
-  const { default: userModel } = await import('../users/user.model');
-  db.User = userModel(sequelize);
+  const { default: accountModel } = await import('../accounts/account.model');
+  const { default: refreshTokenModel } = await import('../accounts/refresh-token.model');
+
+  db.Account = accountModel(sequelize);
+  db.RefreshToken = refreshTokenModel(sequelize);
+
+  // Define associations
+  db.Account.hasMany(db.RefreshToken, { 
+    foreignKey: 'accountId',
+    onDelete: 'CASCADE' 
+  });
+  db.RefreshToken.belongsTo(db.Account, {
+    foreignKey: 'accountId'
+  });
 
   // Sync models with database
   await sequelize.sync({ alter: true });
