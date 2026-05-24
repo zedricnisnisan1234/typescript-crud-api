@@ -1,4 +1,5 @@
 // src/server.ts
+import 'dotenv/config';
 import express, { Application } from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -11,13 +12,19 @@ import usersController from './users/users.controller';
 
 const app: Application = express();
 
+// CORS
+const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:4200';
+app.use(cors({
+  origin: corsOrigin,
+  credentials: true
+}));
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({ origin: '*', credentials: true }));
 
-// Swagger setup
+// Swagger
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -26,7 +33,7 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'A fully functional authentication API'
     },
-    servers: [{ url: 'http://localhost:4000' }],
+    servers: [{ url: process.env.API_URL || 'http://localhost:4000' }],
     components: {
       securitySchemes: {
         bearerAuth: {
@@ -43,14 +50,14 @@ const swaggerOptions = {
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// API Routes
+// Routes
 app.use('/accounts', accountsController);
 app.use('/users', usersController);
 
-// Global Error Handler (must be last)
+// Error handler
 app.use(errorHandler);
 
-// Start server + initialize database
+// Start
 const PORT = process.env.PORT || 4000;
 
 initialize()

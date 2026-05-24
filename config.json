@@ -7,14 +7,14 @@
     "database": "typescript_crud_api"
   },
   "jwtSecret": "change-this-in-production-123!",
-  "emailFrom": "zedricnisnisan@gmail.com",
+  "emailFrom": "noreply@example.com",
   "smtpOptions": {
-    "host": "smtp.gmail.com",
+    "host": "smtp.ethereal.email",
     "port": 587,
     "secure": false,
     "auth": {
-      "user": "zedricnisnisan@gmail.com",
-      "pass": "mfda drkf dqwp eydx"
+      "user": "test@ethereal.email",
+      "pass": "test"
     }
   }
 }
