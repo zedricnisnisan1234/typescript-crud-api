@@ -33,7 +33,11 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'A fully functional authentication API'
     },
-    servers: [{ url: process.env.API_URL || 'http://localhost:4000' }],
+    servers: [{ 
+  url: process.env.API_URL || 'http://localhost:4000'
+}, {
+  url: 'https://typescript-crud-api.onrender.com'
+}],
     components: {
       securitySchemes: {
         bearerAuth: {
