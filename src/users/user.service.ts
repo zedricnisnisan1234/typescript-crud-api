@@ -1,7 +1,7 @@
 // src/users/user.service.ts
 import bcrypt from 'bcryptjs';
-import { db } from '../../src/_helpers/db';
-import { Role } from '../../src/_helpers/role';
+import { db } from '../_helpers/db';
+import { Role } from '../_helpers/role';
 import type { UserCreationAttributes } from './user.model';
 
 export const userService = {
