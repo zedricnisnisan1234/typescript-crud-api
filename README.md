@@ -1,3 +1,9 @@
+## Live URLs
+- API: https://typescript-crud-api.onrender.com
+- API Docs: https://typescript-crud-api.onrender.com/api-docs
+- Frontend: https://angular-auth-boilerplate-rr7y.onrender.com
+
+
 # TypeScript CRUD API
 
 A fully typed REST API built with Node.js, Express, TypeScript, Sequelize, and MySQL.
