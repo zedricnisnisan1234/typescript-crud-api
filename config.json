@@ -1,10 +1,10 @@
 {
   "database": {
-    "host": "localhost",
+    "host": "153.92.15.31",
     "port": 3306,
-    "user": "root",
-    "password": "root1234",
-    "database": "typescript_crud_api"
+    "user": "u875409848_estrada",
+    "password": "2qW^sUg=M",
+    "database": "u875409848_estrada"
   },
   "jwtSecret": "change-this-in-production-123!",
   "emailFrom": "noreply@example.com",
