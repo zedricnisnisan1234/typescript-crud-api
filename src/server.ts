@@ -13,9 +13,10 @@ import usersController from './users/users.controller';
 const app: Application = express();
 
 // CORS
-const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:4200';
 app.use(cors({
-  origin: corsOrigin,
+  origin: function(origin, callback) {
+    callback(null, true);
+  },
   credentials: true
 }));
 
